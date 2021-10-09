@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+    --orange:#ffa500;
+}
+
+body{
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar{
+    width:100%;
+    padding:10px 0;
+    display:flex;
+    justify-content:space-between;
+}
+.logo{
+    margin-left: 20px;
+    width:12%;
+    height: auto;
+    cursor:pointer;
+}
+.logo {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.logo:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.navbar ul li{
+    padding-top:20px;
+    list-style:none;
+    display:inline-block;
+    margin: 0 20px;
+    font-weight: bold;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color:#000;
+    text-transform:uppercase;
+    font-family: "Nunito",serif;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background:#ffa500;
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+#about_us{
+    display: inline-block;
+    padding: 0 0;
+}
+
+#about-us-id{
+    font-size: 4rem;
+}
+
+.teamImg{
+    width: 50%;
+    height: auto;
+    left: 0;
+    top: 0;
+    float: left;
+}
+
+#about-us-content{
+    position: relative;
+    width: 45%;
+    margin-top: 8%;
+    margin-right: 5%;
+    text-align: left;
+    float: right;
+    font-size: 20px;
+    color: black;
+    z-index: 1;
+}
+
+#aboutUsText{
+    margin-top: 5%;
+}
+
+
+.button {
+    float: left;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background: #ccc;
+    overflow: hidden;
+    border-radius: 50px;
+    margin-right: 10px;
+    margin-top: 40px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+}
+
+.button:hover {
+    width: 200px;
+}
+
+.button:nth-child(1):hover .icon {
+    background: #e1306c;
+}
+
+.button:nth-child(2):hover .icon {
+    background: #4267b2;
+}
+
+.button:nth-child(3):hover .icon {
+    background: #1da1f2;
+}
+
+.button:nth-child(4):hover .icon {
+    background: #0e76a8;
+}
+
+.button:nth-child(5):hover .icon {
+    background: #ff0000;
+}
+
+.button:nth-child(6):hover .icon {
+    background: #333;
+}
+
+.button:nth-child(1) span {
+    color: #e1306c;
+}
+
+.button:nth-child(2) span {
+    color: #4267b2;
+}
+
+.button:nth-child(3) span {
+    color: #1da1f2;
+}
+
+.button:nth-child(4) span {
+    color: #0e76a8;
+}
+
+.button:nth-child(5) span {
+    color: #ff0000;
+}
+
+.button:nth-child(6) span {
+    color: #333;
+}
+
+.button .icon {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+.button .icon i {
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover i {
+    color: #fff;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Counts
+--------------------------------------------------------------*/
+.counts {
+    background: url("../Gallery Images/counts-bg.jpg") center center no-repeat;
+    background-size: cover;
+    padding: 80px 0 60px 0;
+    position: relative;
+    width: 100%;
+}
+
+.counts::before {
+    content: "";
+    position: absolute;
+    background: rgba(17, 17, 17, 0.9);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.counts .title {
+    position: relative;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.counts .title h3 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.counts .counters span {
+    font-size: 48px;
+    display: block;
+    font-weight: 700;
+    color: #009961;
+}
+
+.counts .counters p {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    color: #fff;
+}
+
+.section-title {
+    padding-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #009961;
+    bottom: 0;
+    left: 0;
+}
+
+.section-title p {
+    margin-bottom: 0;
+    color: #777777;
+    font-size: 15px;
+}
+
+
+@media (min-width: 1200px) {
+    .counts {
+        background-attachment: fixed;
+    }
+}
+
+
+/*******************************************Footer section starts*******************************************/
+.footer{
+    background:#333;
+    width: 100%;
+    font-size: 10px;
+    position: relative;
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    padding:2rem 2rem;
+    flex:1 1 10rem;
+    text-transform: uppercase;
+}
+
+.footer .box-container .box h3{
+    font-size: 1.5rem;
+    color:#fff;
+    text-transform: uppercase;
+}
+
+.footer .box-container .box p{
+    font-size: 1rem;
+    padding:.7rem 0;
+    color:#eee;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1rem;
+    padding:.7rem 0;
+    color:#eee;
+    text-decoration: none;
+}
+
+.footer .box-container .box a:hover{
+    color:var(--orange);
+    text-decoration: underline;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:2rem 1rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color:#fff;
+    border-top: .1rem solid rgba(255,255,255,.2);
+    text-transform: uppercase;
+
+}
+
+.footer .credit a{
+    text-decoration: none;
+}
+
+.footer .credit span{
+    color:var(--orange);
+    cursor: pointer;
+}
+/*******************************************Footer section ends*******************************************/

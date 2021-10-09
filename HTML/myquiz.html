@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang = "en">	<!-- specifies the language of the content -->
+
+<!-- head section starts -->
+<head>
+    <!-- defines Universal Character Set + Transformation Format-8-bit -->
+    <meta charset = "UTF-8">
+    <!-- defines the title of the page -->
+    <title>Quiz</title>
+
+    <!-- embedded style sheet starts -->
+    <style>
+
+        *
+        {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url("https://images.pexels.com/photos/2387628/pexels-photo-2387628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            font-family: "Times New Roman", Arial, Serif, serif;
+            font-size: 16px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container
+        {
+            width: 54vw;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            color: #fff;
+            margin: 20px auto;
+            overflow: auto;
+            padding: 7rem;
+            border: 4px solid #fff;
+            text-align: left;
+        }
+
+        #correctAnswers
+        {
+            display: none;
+        }
+
+        #countdown
+        {
+            position: fixed;
+            margin: auto;
+            margin-top: 100px;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+        }
+
+        #countdown-number
+        {
+            color: #000;
+            display: inline-block;
+            line-height: 40px;
+        }
+
+        svg
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            transform: rotateY(-180deg) rotateZ(-90deg);
+        }
+
+        svg circle
+        {
+            stroke-dasharray: 113px;
+            stroke-dashoffset: 0;
+            stroke-linecap: round;
+            stroke-width: 4px;
+            stroke: gray;
+            fill: none;
+            animation: countdown 60s linear;
+        }
+
+        @keyframes countdown
+        {
+            from
+            {
+                stroke-dashoffset: 0;
+            }
+            to
+            {
+                stroke-dashoffset: 113px;
+            }
+        }
+
+        #demo
+        {
+            font-size: 20px;
+            text-align: center;
+            font-family:"Times New Roman", Arial, serif;
+            color: #ffffff;
+        }
+
+        #quiz
+        {
+            font-family: "Times New Roman", Arial, serif;
+            color:#000000;
+            text-align: center;
+        }
+
+        #question
+        {
+            font-weight: bold;
+            font-size: 20px;
+            color: #303030;
+            text-align: center;
+        }
+
+        #title
+        {
+            font-family: "Lucida Handwriting";
+            font-size: 50px;
+            color: #303030;
+            text-align: center;
+        }
+
+        .title
+        {
+            font-family: "Lucida Handwriting";
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        #game
+        {
+            position: relative;
+            display: none;
+        }
+
+        .game-main-stage
+        {
+            position: relative;
+            border-radius: 25px;
+            background: #000;
+            backdrop-filter: blur(5px);
+            top: 25%;
+            padding: 50px;
+            width: 60%;
+            margin: 20px auto;
+        }
+
+        .play-button
+        {
+            padding: 10px 15px 10px 30px;
+            background-color: rgba(0, 0, 0,.75);
+            border: 1px solid #fff;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.5s;
+            transform: scale(1);
+            font-size: 20px;
+
+        }
+
+        .play-button:hover
+        {
+            background-color: rgba(255, 255, 255,.05);
+            color: #4fffe4;
+            font-weight: bold;
+            transform: scale(1.1);
+        }
+
+        .submithover
+        {
+            background: #333333;
+            color: #ffffff;
+            border: 2px;
+            border-radius: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .submithover:hover
+        {
+            background-color: #333333;
+            color: #4fffe4;
+            border-radius: 10px;
+            font-weight: bold;
+            transform: scale(1.0);
+        }
+        article {
+            position: fixed;
+            transform: translate(-61.2%,-20%);
+            width: 100%;
+        }
+
+        a:link
+        {
+            color: #4fffe4;
+        }
+
+        a:hover
+        {
+            color: #0000ff;
+        }
+
+    </style>
+    <!-- embedded style sheet ends -->
+
+</head>
+<!-- head section ends -->
+
+<!-- body section starts -->
+<body>
+<div class="game-main-stage" id="game-main">
+    <div id = "title1">About Quiz</div>
+    <img src="https://th.bing.com/th/id/R.68e812ba2b7dcebd827d45f9c4cf47df?rik=XJxpUgJg5bmPaQ&riu=http%3a%2f%2fmedical.sjp.ac.lk%2fimages%2felectives%2fexploring-sri-lanka.jpg&ehk=Tk%2bXWLXAQ6hVO2%2bjUT3fmgYksz1R2sGJdmjf1W6ROXg%3d&risl=&pid=ImgRaw" alt="Sri Lanka" style="width:400px;height:300px;" onload="typeWriter()">
+    <p id="demo" class="title"></p><input type="button" class="play-button" id="quiz-game-btn" value="PLAY NOW&emsp;" onclick="myTimeConfirm();" >
+
+</div>
+
+<div id = "quiz">
+    <div id="game">
+        <div id="container2">
+            <article>
+                <video width="300px" height="300px" id="myVideo" muted>
+                    <source src="../Videos/timer.mp4" type="video/mp4">
+                </video>
+            </article>
+            <div id="countdown">
+                <div id="countdown-number"></div>
+            </div>
+        </div>
+        <div id="container">
+
+            <!-- Header starts -->
+            <header>
+                <div id = "title">~~ Quiz ~~</div>
+                <h3>Test your general knowledge about Sri Lanka</h3>
+            </header>
+            <!-- Header ends -->
+
+            <section>
+                <form name = "quizForm" >
+
+                    <!-- Question 1 -->
+                    <div id = "question1">1. What is not a name that visitors address Sri Lanka?</div>
+                    <br>
+                    <div id = "answers1">
+                        <input type="radio" name="q1" value="a" id="q1a">a. Serendib<br>
+                        <input type="radio" name="q1" value="b" id="q1b">b. Bharata<br>
+                        <input type="radio" name="q1" value="c" id="q1c">c. Ceylon<br>
+                        <input type="radio" name="q1" value="d" id="q1d">d. Pearl of the Indian Ocean<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 2 -->
+                    <div id = "question2">2. What's the heart of Sri Lankan cuisine?</div>
+                    <br>
+                    <div id = "answers2">
+                        <input type="radio" name="q2" value="a" id="q2a">a. Wheat<br>
+                        <input type="radio" name="q2" value="b" id="q2b">b. Corn<br>
+                        <input type="radio" name="q2" value="c" id="q2c">c. Soybeans<br>
+                        <input type="radio" name="q2" value="d" id="q2d">d. Rice and Curry<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 3 -->
+                    <div id = "question3">3. What is the capital of Sri Lanka?</div>
+                    <br>
+                    <div id = "answers3">
+                        <input type="radio" name="q3" value="a" id="q3a">a. Sri Jayawardenepura Kotte<br>
+                        <input type="radio" name="q3" value="b" id="q3b">b. Trincomalee<br>
+                        <input type="radio" name="q3" value="c" id="q3c">c. Batticaloa<br>
+                        <input type="radio" name="q3" value="d" id="q3d">d. Colombo<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 4 -->
+                    <div id = "question4">4. When did Sri Lanka gain independence?</div>
+                    <br>
+                    <div id = "answers4">
+                        <input type="radio" name="q4" value="a" id="q4a">a. 1950<br>
+                        <input type="radio" name="q4" value="b" id="q4b">b. 1948<br>
+                        <input type="radio" name="q4" value="c" id="q4c">c. 1966<br>
+                        <input type="radio" name="q4" value="d" id="q4d">d. 1980<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 5 -->
+                    <div id = "question5">5. What is the currency of Sri Lanka?</div>
+                    <br>
+                    <div id = "answers5">
+                        <input type="radio" name="q5" value="a" id="q5a">a. Rand<br>
+                        <input type="radio" name="q5" value="b" id="q5b">b. Riyadh<br>
+                        <input type="radio" name="q5" value="c" id="q5c">c. Rupee<br>
+                        <input type="radio" name="q5" value="d" id="q5d">d. Rial<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 6 -->
+                    <div id = "question6">6. What is the major product exported by Sri Lanka?</div>
+                    <br>
+                    <div id = "answers6">
+                        <input type="radio" name="q6" value="a" id="q6a">a. Textiles and Garments<br>
+                        <input type="radio" name="q6" value="b" id="q6b">b. Tea<br>
+                        <input type="radio" name="q6" value="c" id="q6c">c. Gems<br>
+                        <input type="radio" name="q6" value="d" id="q6d">d. Fish<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 7 -->
+                    <div id = "question7">7. The world saw its first-ever female prime minister from Sri Lanka. Her name is...</div>
+                    <br>
+                    <div id = "answers7">
+                        <input type="radio" name="q7" value="a" id="q7a">a. Indira Gandhi<br>
+                        <input type="radio" name="q7" value="b" id="q7b">b. Sirimavo Bandaranaike<br>
+                        <input type="radio" name="q7" value="c" id="q7c">c. Benazir Bhutto<br>
+                        <input type="radio" name="q7" value="d" id="q7d">d. Chandrika Kumaratunga<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 8 -->
+                    <div id = "question8">8. What is the national bird of Sri Lanka?</div>
+                    <br>
+                    <div id = "answers8">
+                        <input type="radio" name="q8" value="a" id="q8a">a.  Peacock<br>
+                        <input type="radio" name="q8" value="b" id="q8b">b.  Pigeon<br>
+                        <input type="radio" name="q8" value="c" id="q8c">c.  Parrot<br>
+                        <input type="radio" name="q8" value="d" id="q8d">d.  Jungle fowl<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 9 -->
+                    <div id = "question9">9. Which is the highest peak in Sri Lanka?</div>
+                    <br>
+                    <div id = "answers9">
+                        <input type="radio" name="q9" value="a" id="q9a">a.  Adam's Peak<br>
+                        <input type="radio" name="q9" value="b" id="q9b">b.  Pidurutalagala<br>
+                        <input type="radio" name="q9" value="c" id="q9c">c.  Godwin Austin<br>
+                        <input type="radio" name="q9" value="d" id="q9d">d.  Thoppigala<br>
+                    </div>
+                    <br>
+
+                    <!-- Question 10 -->
+                    <div id = "question10">10. Sri Lankans say...</div>
+                    <br>
+                    <div id = "answers10">
+                        <input type="radio" name="q10" value="a" id="q10a">a. Konnichiwa<br>
+                        <input type="radio" name="q10" value="b" id="q10b">b. Namaste<br>
+                        <input type="radio" name="q10" value="c" id="q10c">c. Assalamwalikkum<br>
+                        <input type="radio" name="q10" value="d" id="q10d">d. Ayubowan<br>
+                    </div>
+                    <br>
+                    <input type="submit" value="Submit Answers" class="submithover" id="colorz" onclick="display()" onsubmit="displayTime()">	<!-- Submit quiz -->
+
+                </form>
+                <br>
+                <!-- display results -->
+                <div id="results"></div>
+                <div id = "correctAnswers">
+                    <h3>Correct Answers</h3>
+                    <p>1. b. Bharata</p>
+                    <p>2. d. Rice and Curry</p>
+                    <p>3. a. Sri Jayawardenepura Kotte</p>
+                    <p>4. b. 1948</p>
+                    <p>5. c. Rupee</p>
+                    <p>6. a. Textiles and Garments</p>
+                    <p>7. b. Sirimavo Bandaranaike</p>
+                    <p>8. d. Jungle fowl</p>
+                    <p>9. b. Pidurutalagala</p>
+                    <p>10.d. Ayubowan</p>
+                    <p>Want to go back to main page?</p>
+                    <!-- redirecting to home page -->
+                    <a href="Loading%20Home%20Page.html">Home</a>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<!-- script starts -->
+<script>
+    var vid = document.getElementById("myVideo");
+
+    //playing video of the timer
+    function playVid()
+    {
+        vid.play();
+    }
+
+    <!-- type-writing the description -->
+    var i = 0;
+    var txt = 'Answer all questions correctly to earn a 100$ Coupon or 10% discount on next booking!';
+    var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+    function typeWriter()
+    {
+        if (i < txt.length)
+        {
+            document.getElementById("demo").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    <!-- displaying the quiz -->
+    function myFunction()
+    {
+        var y = document.getElementById("game-main");
+        var x = document.getElementById("game");
+
+        if (x.style.display === "none"  || x.style.display === "" )
+        {
+            x.style.display = "block";
+            y.style.display = "none";
+        }
+    }
+
+    <!-- confirming to start the timer -->
+    function myTimeConfirm()
+    {
+        var z = confirm("Do you want to start the timer?");
+
+        if ( z === true )
+        {
+            myFunction();
+            playVid();
+            setMyTime();
+        }
+    }
+
+    <!-- calculating time -->
+    var countdownNumberEl = document.getElementById('countdown-number');
+    var countdown = 0;
+    setInterval(setMyTime, 1000);
+
+    function setMyTime() {
+        ++countdown;
+        countdown.innerHTML = pad(countdown);
+        var valString = val + "";
+        if (valString.length < 2) {
+            return "0" + valString;
+        } else {
+            return valString;
+        }
+    }
+
+    <!-- checking answers -->
+    var total = 10;
+    var score = 0;
+    var formElement = document.forms["quizForm"];
+
+    formElement.onsubmit = function getRadioValue()
+    {
+        var q1 = document.forms["quizForm"]["q1"].value;
+        q2 = document.forms["quizForm"]["q2"].value;
+        q3 = document.forms["quizForm"]["q3"].value;
+        q4 = document.forms["quizForm"]["q4"].value;
+        q5 = document.forms["quizForm"]["q5"].value;
+        q6 = document.forms["quizForm"]["q6"].value;
+        q7 = document.forms["quizForm"]["q7"].value;
+        q8 = document.forms["quizForm"]["q8"].value;
+        q9 = document.forms["quizForm"]["q9"].value;
+        q10= document.forms["quizForm"]["q10"].value;
+
+        var check = false;
+
+        for (i=1; i <= total; i++)
+        {
+            <!-- validation for no-user input -->
+            if(eval("q"+i) === null || eval("q"+i) === "")
+            {
+                alert("You missed question" + i);
+                check = false
+                return false;
+            }
+        }
+        check = true
+
+        if(check === true)
+        {
+            displayAns()
+        }
+
+        <!-- answers list and incrementing correct and wrong answers -->
+        var answersList = ["b","d","a","b","c","a","b","d","b","d"];
+        var correctAnswers = 0;
+        var wrongAnswers = 0;
+        for (i=1; i <= total; i++)
+        {
+            if(eval("q"+i) === answersList[i - 1])
+            {
+                score+=2;
+                correctAnswers++;
+            } else
+            {
+                score-=1;
+                wrongAnswers++;
+            }
+        }
+
+
+        <!-- changing background colour -->
+        if (document.getElementById("colorz").value === "Submit Answers") {
+            if (score < 10) {
+                document.getElementById("container").style.backgroundColor = "red";
+                var unlucky = confirm("Seems like it's not your lucky day... But don't get disheartened... Shall we go to main page?");
+            } else if (score < 15) {
+                document.getElementById("container").style.backgroundColor = "yellow";
+                document.getElementById("correctAnswers").style.color="black";
+                document.getElementById("container").style.color="black";
+                var intermediate = confirm("That was a close one... Not bad... Shall we go to main page?");
+            } else if (score <= 20) {
+                document.getElementById("container").style.backgroundColor = "green";
+                var lucky = confirm("Congratulations... You are the lucky winner... Let's go to main page");
+            }
+        }
+
+        <!-- displaying results -->
+        document.getElementById("myVideo").style.display = "none";
+        var results = document.getElementById("results");
+        results.innerHTML = "<div id = 'question'>You scored " + score +" out of 20<br>You answered : <br>" + correctAnswers +" questions correctly<br> " + wrongAnswers +" question incorrectly<br>Time taken : "+countdown+" seconds</div>";
+        return false;
+    }
+
+    <!-- displaying answers -->
+    function displayAns()
+    {
+        var x = document.getElementById("correctAnswers")
+        if (x.style.display === "none" || x.style.display === "")
+        {
+            x.style.display = "block";
+        }
+    }
+</script>
+<!-- script ends -->
+</body>
+<!-- body section ends -->
+</html>
