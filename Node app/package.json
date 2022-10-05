@@ -1,0 +1,30 @@
+{
+  "name": "email-send-for-nandun",
+  "version": "1.0.0",
+  "description": "Email Send for Nandun",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nipooNM/Email-Send-for-Nandun.git"
+  },
+  "author": "Nipuna Perera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nipooNM/Email-Send-for-Nandun/issues"
+  },
+  "homepage": "https://github.com/nipooNM/Email-Send-for-Nandun#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
